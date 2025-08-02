@@ -7,52 +7,332 @@
     <title>cbgames.xyz</title>
     <link rel="stylesheet" href="updatedtooltip.css">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333;
-            background-image: url('');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #0d1421 0%, #1a1f2e 100%);
+            color: #e4e6ea;
+            line-height: 1.6;
+            min-height: 100vh;
         }
+        
         .navbar {
-            background-color: #007bff;
-            padding: 10px;
+            background: rgba(13, 20, 33, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
+        
         .navbar .title {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            margin-left: 15px;
+            color: #61dafb;
+            font-size: 26px;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
         }
-        .navbar .nav-links {
-            margin-right: 15px;
-        }
+        
         .navbar .nav-links a {
-            color: white;
-            margin: 0 10px;
+            color: #e4e6ea;
+            margin: 0 15px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: #61dafb;
+        }
+        
+        .navbar .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #61dafb;
+            transition: width 0.3s ease;
+        }
+        
+        .navbar .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 20px;
+        }
+        
+        .hero-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #61dafb, #21d4fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #8892b0;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: #a8b2d1;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .tech-stack {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #e4e6ea;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #61dafb;
+        }
+        
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .tech-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e4e6ea;
+            margin-bottom: 10px;
+        }
+        
+        .tech-description {
+            font-size: 0.9rem;
+            color: #8892b0;
+            line-height: 1.5;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            margin-top: 80px;
+        }
+        
+        .cta-title {
+            margin-bottom: 30px;
+            color: #e4e6ea;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #61dafb, #21d4fd);
+            color: #0d1421;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(97, 218, 251, 0.3);
+        }
+        
+        .code-snippet {
+            background: #1e2139;
+            border: 1px solid #373b5a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #e4e6ea;
+            position: relative;
+            overflow-x: auto;
+        }
+        
+        .code-snippet::before {
+            content: '• • •';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            color: #8892b0;
+            font-size: 1.2rem;
+        }
+        
+        .code-content {
+            margin-top: 25px;
+        }
+        
+        .keyword { color: #c792ea; }
+        .string { color: #c3e88d; }
+        .function { color: #82aaff; }
+        .comment { color: #676e95; }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .navbar .nav-links a {
+                margin: 0 8px;
+                font-size: 0.9rem;
+            }
+            
+            .navbar .title {
+                font-size: 20px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body id="body">
-    <div class="navbar">
-        <div class="title">cbgames.xyz</div>
-        <div class="nav-links">
-            <a href="./index.html">Home</a>
-            <a href="./about/index.html">About Me</a>
-            <a href="./projects/index.html">Projects</a>
-            <a href="./sitemap.html">Sitemap</a>
-            <a href="./public-portal/index.html">Portal</a>
-            <a href="./contacts/index.html">Contact</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="title">cbx.dev</div>
+            <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./about/index.html">About</a>
+                <a href="./projects/index.html">Projects</a>
+                <a href="./sitemap.html">Sitemap</a>
+                <a href="./public-portal/index.html">Portal</a>
+                <a href="./contacts/index.html">Contact</a>
+            </div>
         </div>
-    </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1 class="hero-title">Hello, I'm CBX</h1>
+            <p class="hero-subtitle">Full-Stack Developer & Digital Creator</p>
+            <p class="hero-description">
+                I build modern web applications, create digital experiences, and develop innovative solutions. 
+                Passionate about clean code, user experience, and bringing ideas to life through technology.
+            </p>
+            
+            <div class="code-snippet">
+                <div class="code-content">
+                    <span class="keyword">const</span> <span class="function">developer</span> = {<br>
+                    &nbsp;&nbsp;<span class="string">"name"</span>: <span class="string">"CBX"</span>,<br>
+                    &nbsp;&nbsp;<span class="string">"skills"</span>: [<span class="string">"JavaScript"</span>, <span class="string">"Python"</span>, <span class="string">"Web Dev"</span>],<br>
+                    &nbsp;&nbsp;<span class="string">"passion"</span>: <span class="string">"Building amazing things"</span>,<br>
+                    &nbsp;&nbsp;<span class="string">"status"</span>: <span class="string">"Ready to create"</span><br>
+                    };
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <h2 class="section-title">Technologies & Skills</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🌐</div>
+                    <div class="tech-name">Web Development</div>
+                    <div class="tech-description">Modern HTML5, CSS3, JavaScript ES6+</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">⚛️</div>
+                    <div class="tech-name">Frontend Frameworks</div>
+                    <div class="tech-description">React, Vue.js, responsive design</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🔧</div>
+                    <div class="tech-name">Backend Development</div>
+                    <div class="tech-description">Node.js, Python, API development</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">💾</div>
+                    <div class="tech-name">Database & Cloud</div>
+                    <div class="tech-description">MongoDB, SQL, cloud deployment</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🎮</div>
+                    <div class="tech-name">Game Development</div>
+                    <div class="tech-description">Interactive experiences & simulations</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🛠️</div>
+                    <div class="tech-name">DevOps & Tools</div>
+                    <div class="tech-description">Git, CI/CD, automation tools</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to collaborate?</h2>
+            <a href="./projects/index.html" class="cta-button">View My Projects</a>
+            <a href="./contacts/index.html" class="cta-button">Get In Touch</a>
+        </section>
+    </main>
+
     <div id="content-placeholder"></div>
     <script src="./updatedtooltip.js"></script>
     <script>
