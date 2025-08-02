@@ -4,335 +4,14 @@
     <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/diehyknwd/image/upload/v1733356534/favicon_u1ktel.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - CBX Developer</title>
+    <title>Contact - cb𝑥 Developer</title>
+    <link rel="stylesheet" href="../developer-theme.css">
     <link rel="stylesheet" href="../updatedtooltip.css">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #0d1421 0%, #1a1f2e 100%);
-            color: #e4e6ea;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        
-        .navbar {
-            background: rgba(13, 20, 33, 0.95);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .navbar .title {
-            color: #61dafb;
-            font-size: 26px;
-            font-weight: 700;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .navbar .nav-links a {
-            color: #e4e6ea;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        .navbar .nav-links a:hover {
-            color: #61dafb;
-        }
-        
-        .navbar .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #61dafb;
-            transition: width 0.3s ease;
-        }
-        
-        .navbar .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .navbar .nav-links a.active {
-            color: #61dafb;
-        }
-        
-        .navbar .nav-links a.active::after {
-            width: 100%;
-        }
-        
-        .main-content {
-            margin-top: 80px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .contact-hero {
-            text-align: center;
-            padding: 60px 0 40px;
-        }
-        
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #61dafb, #21d4fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: #8892b0;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 40px;
-        }
-        
-        .contact-info {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 40px;
-        }
-        
-        .contact-form {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 40px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #e4e6ea;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-        
-        .contact-method:hover {
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        .contact-icon {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            color: #61dafb;
-            width: 30px;
-        }
-        
-        .contact-details h4 {
-            margin: 0 0 5px 0;
-            color: #e4e6ea;
-            font-weight: 600;
-        }
-        
-        .contact-details p {
-            margin: 0;
-            color: #8892b0;
-        }
-        
-        .contact-details a {
-            color: #61dafb;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-details a:hover {
-            color: #21d4fd;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #e4e6ea;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            color: #e4e6ea;
-            font-size: 16px;
-            transition: border-color 0.3s ease, background 0.3s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #61dafb;
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(45deg, #61dafb, #21d4fd);
-            color: #0d1421;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(97, 218, 251, 0.3);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            justify-content: center;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: #61dafb;
-            text-decoration: none;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background: rgba(97, 218, 251, 0.1);
-            border-color: #61dafb;
-            transform: translateY(-3px);
-        }
-        
-        .availability-status {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 30px;
-            text-align: center;
-        }
-        
-        .availability-text {
-            margin: 10px 0 0 0;
-            color: #8892b0;
-            font-size: 0.9rem;
-        }
-        
-        .status-indicator {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background: #22c55e;
-            border-radius: 50%;
-            margin-right: 10px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-        
-        @media (max-width: 768px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .contact-info,
-            .contact-form {
-                padding: 25px;
-            }
-            
-            .navbar .nav-links a {
-                margin: 0 8px;
-                font-size: 0.9rem;
-            }
-            
-            .navbar .title {
-                font-size: 20px;
-            }
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="title">cbx.dev</div>
+            <div class="title">cb𝑥.dev</div>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
                 <a href="../about/index.html">About</a>
@@ -370,7 +49,7 @@
                     <div class="contact-icon">💼</div>
                     <div class="contact-details">
                         <h4>LinkedIn</h4>
-                        <p><a href="#" target="_blank">Connect on LinkedIn</a></p>
+                        <p><a href="#" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
                     </div>
                 </div>
                 
@@ -418,7 +97,7 @@
                     <span>📝</span> Send a Message
                 </h2>
                 
-                <form action="#" method="POST">
+                <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -438,12 +117,13 @@
                         <label for="project-type">Project Type</label>
                         <select id="project-type" name="project-type">
                             <option value="">Select project type</option>
-                            <option value="web-development">Web Development</option>
-                            <option value="full-stack">Full Stack Application</option>
-                            <option value="frontend">Frontend Development</option>
-                            <option value="backend">Backend Development</option>
-                            <option value="consultation">Technical Consultation</option>
-                            <option value="other">Other</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Full Stack Application">Full Stack Application</option>
+                            <option value="Frontend Development">Frontend Development</option>
+                            <option value="Backend Development">Backend Development</option>
+                            <option value="Game Development">Game Development</option>
+                            <option value="Technical Consultation">Technical Consultation</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                     
@@ -452,12 +132,83 @@
                         <textarea id="message" name="message" placeholder="Tell me about your project, timeline, and any specific requirements..." required></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <button type="button" onclick="generateEmailPreview()" class="submit-btn">Generate Email Preview</button>
                 </form>
+
+                <div id="emailPreview" class="email-preview">
+                    <div class="email-preview-title">📧 Email Preview</div>
+                    <div id="emailContent"></div>
+                    <button type="button" onclick="copyToClipboard()" class="email-action-btn copy-btn">Copy to Clipboard</button>
+                    <button type="button" onclick="openEmailClient()" class="email-action-btn email-btn">Open Email Client</button>
+                </div>
             </div>
         </div>
     </main>
 
     <script src="../updatedtooltip.js"></script>
+    <script>
+        function generateEmailPreview() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const projectType = document.getElementById('project-type').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields (Name, Email, Subject, Message)');
+                return;
+            }
+
+            const emailSubject = projectType ? `${projectType}: ${subject}` : subject;
+            const emailBody = `${message}\n\n[From ${name}]`;
+
+            const emailPreviewHTML = `From: ${email}
+To: contact@cbx.dev
+Subject: ${emailSubject}
+
+${emailBody}`;
+
+            document.getElementById('emailContent').textContent = emailPreviewHTML;
+            document.getElementById('emailPreview').classList.add('show');
+            
+            // Store for clipboard/email client functions
+            window.emailData = {
+                to: 'contact@cbx.dev',
+                subject: emailSubject,
+                body: emailBody
+            };
+        }
+
+        function copyToClipboard() {
+            const emailContent = document.getElementById('emailContent').textContent;
+            navigator.clipboard.writeText(emailContent).then(() => {
+                alert('Email content copied to clipboard!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = emailContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Email content copied to clipboard!');
+            });
+        }
+
+        function openEmailClient() {
+            if (window.emailData) {
+                const mailtoLink = `mailto:${window.emailData.to}?subject=${encodeURIComponent(window.emailData.subject)}&body=${encodeURIComponent(window.emailData.body)}`;
+                window.location.href = mailtoLink;
+            }
+        }
+
+        // Auto-generate preview when form changes
+        document.getElementById('contactForm').addEventListener('input', function() {
+            const preview = document.getElementById('emailPreview');
+            if (preview.classList.contains('show')) {
+                generateEmailPreview();
+            }
+        });
+    </script>
 </body>
 </html>
