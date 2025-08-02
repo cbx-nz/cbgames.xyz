@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/diehyknwd/image/upload/v1733356534/favicon_u1ktel.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap - cb𝑥 Developer</title>
+    <link rel="stylesheet" href="developer-theme.css">
+    <link rel="stylesheet" href="updatedtooltip.css">
+</head>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0d1421 0%, #1a1f2e 100%);
+            color: #e4e6ea;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: rgba(13, 20, 33, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .navbar .title {
+            color: #61dafb;
+            font-size: 26px;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .navbar .nav-links a {
+            color: #e4e6ea;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: #61dafb;
+        }
+        
+        .navbar .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #61dafb;
+            transition: width 0.3s ease;
+        }
+        
+        .navbar .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .navbar .nav-links a.active {
+            color: #61dafb;
+        }
+        
+        .navbar .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sitemap-hero {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #61dafb, #21d4fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #8892b0;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #61dafb;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+        
+        .section-icon {
+            font-size: 1.8rem;
+            color: #61dafb;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: #e4e6ea;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .section-description {
+            color: #8892b0;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .page-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .page-item {
+            margin-bottom: 12px;
+        }
+        
+        .page-link {
+            color: #a8b2d1;
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            border-left: 2px solid transparent;
+            padding-left: 12px;
+        }
+        
+        .page-link:hover {
+            color: #61dafb;
+            border-left-color: #61dafb;
+            padding-left: 20px;
+        }
+        
+        .page-link::before {
+            content: '▸ ';
+            color: #61dafb;
+            font-weight: bold;
+        }
+        
+        .subsection {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .subsection-title {
+            font-size: 1.1rem;
+            color: #e4e6ea;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .stats-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .stats-title {
+            color: #e4e6ea;
+            margin-bottom: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #61dafb;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #8892b0;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .sitemap-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-card {
+                padding: 20px;
+            }
+            
+            .navbar .nav-links a {
+                margin: 0 8px;
+                font-size: 0.9rem;
+            }
+            
+            .navbar .title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="title">cbx.dev</div>
+            <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./about/index.html">About</a>
+                <a href="./projects/index.html">Projects</a>
+                <a href="./sitemap.html" class="active">Sitemap</a>
+                <a href="./public-portal/index.html">Portal</a>
+                <a href="./contacts/index.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="sitemap-hero">
+            <h1 class="hero-title">Site Navigation</h1>
+            <p class="hero-subtitle">
+                Complete overview of all pages and sections available on cbx.dev. Navigate through my portfolio, projects, and resources.
+            </p>
+        </section>
+
+        <div class="sitemap-grid">
+            <div class="section-card">
+                <div class="section-header">
+                    <span class="section-icon">🏠</span>
+                    <h2 class="section-title">Core Pages</h2>
+                </div>
+                <p class="section-description">Main sections of the website</p>
+                <ul class="page-list">
+                    <li class="page-item">
+                        <a href="./index.html" class="page-link">Home - Developer Portfolio</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./about/index.html" class="page-link">About Me</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./contacts/index.html" class="page-link">Contact & Collaboration</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./sitemap.html" class="page-link">Sitemap</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <span class="section-icon">💼</span>
+                    <h2 class="section-title">Projects</h2>
+                </div>
+                <p class="section-description">Portfolio of development work and creative projects</p>
+                <ul class="page-list">
+                    <li class="page-item">
+                        <a href="./projects/index.html" class="page-link">Projects Overview</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./projects/webdev/index.html" class="page-link">Web Development</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./projects/minecraft/index.html" class="page-link">Minecraft Projects</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./projects/crew2000/index.html" class="page-link">The Crew 2 PS1 Retro</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./projects/dev-games/index.html" class="page-link">Game Development</a>
+                    </li>
+                </ul>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Minecraft Content</h3>
+                    <ul class="page-list">
+                        <li class="page-item">
+                            <a href="./projects/minecraft/datapacks.html" class="page-link">Custom Datapacks</a>
+                        </li>
+                        <li class="page-item">
+                            <a href="./projects/minecraft/mods.html" class="page-link">Mod Development</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <span class="section-icon">🌐</span>
+                    <h2 class="section-title">Networks & Services</h2>
+                </div>
+                <p class="section-description">Infrastructure and community platforms</p>
+                <ul class="page-list">
+                    <li class="page-item">
+                        <a href="./networks/index.html" class="page-link">Networks Overview</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./networks/cbc.html" class="page-link">CBC Network</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./networks/cdn.html" class="page-link">CDN Services</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./networks/forum/index.html" class="page-link">Community Forums</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./static-cdn/index.html" class="page-link">Static CDN</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <span class="section-icon">🚪</span>
+                    <h2 class="section-title">Portals & Tools</h2>
+                </div>
+                <p class="section-description">Access points and utility pages</p>
+                <ul class="page-list">
+                    <li class="page-item">
+                        <a href="./public-portal/index.html" class="page-link">Public Portal</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./developer-portal/unused.html" class="page-link">Developer Portal</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./api/verify-captcha.js" class="page-link">API Services</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./extensionscreations/cbxchromeextension/" class="page-link">Browser Extensions</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <span class="section-icon">🎭</span>
+                    <h2 class="section-title">Special & Events</h2>
+                </div>
+                <p class="section-description">Seasonal content and experimental pages</p>
+                <ul class="page-list">
+                    <li class="page-item">
+                        <a href="./events/index.html" class="page-link">Events Hub</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./events/aprilfools.html" class="page-link">April Fools Content</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./government/index.html" class="page-link">Government Mockup</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./curations/index.html" class="page-link">Content Curations</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <span class="section-icon">⚠️</span>
+                    <h2 class="section-title">System Pages</h2>
+                </div>
+                <p class="section-description">Error pages and system information</p>
+                <ul class="page-list">
+                    <li class="page-item">
+                        <a href="./404.html" class="page-link">404 Error Page</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./404/blackboard.html" class="page-link">Server Error Page</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="./test/index.html" class="page-link">Testing Environment</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h2 class="stats-title">Site Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <div class="stat-label">Main Sections</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">30+</span>
+                    <div class="stat-label">Total Pages</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2024</span>
+                    <div class="stat-label">Last Updated</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./updatedtooltip.js"></script>
+</body>
+</html>
