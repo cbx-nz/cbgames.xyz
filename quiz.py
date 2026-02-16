@@ -5,6 +5,7 @@ global_QUIZN = 1
 print("Welcome to my quiz!")
 shuffleyes = input("Would you like to shuffle the quiz? If Yes, enter y/Y")
 def question_1(): 
+  global global_SCORE, global_QUIZN
   print("QUESTION",global_QUIZN,"what does 'import random' do?")
   print("A: imports the library 'random'")
   print("B: imports a random library")
@@ -17,6 +18,7 @@ def question_1():
     print("import random imports the library 'random'")
   global_QUIZN +=1
 def question_2():
+  global global_SCORE, global_QUIZN
   print("QUESTION",global_QUIZN,"Unlike other languages, Python requires indentation")
   answer = input("True or False:")
   if answer == "True" or answer == "true":
@@ -25,6 +27,7 @@ def question_2():
     print("Python requires indentation because it just wants to be different")
   global_QUIZN +=1
 def question_3():
+  global global_SCORE, global_QUIZN
   print("QUESTION",global_QUIZN,"Which function is used to display output in Python?")
   print("A: echo()")
   print("B: print()")
@@ -37,6 +40,7 @@ def question_3():
     print("print() is used to display to the terminal")
   global_QUIZN +=1
 def question_4():
+  global global_SCORE, global_QUIZN
   print("QUESTION",global_QUIZN,"Which symbol is used for comments in Python?")
   print("A: //")
   print("B: <!-- -->")
@@ -49,6 +53,7 @@ def question_4():
     print("# symbol is the only one used in python for code comments")
   global_QUIZN +=1
 def question_5():
+  global global_SCORE, global_QUIZN
   print("QUESTION",global_QUIZN,"Which of the following data types is used to store text in Python?")
   print("A: int")
   print("B: float")
